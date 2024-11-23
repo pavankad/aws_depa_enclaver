@@ -1,0 +1,17 @@
+version: v1
+name: "depa"
+target: "depa:enclave-latest"
+sources:
+  app: "depa:latest"
+defaults:
+  memory_mb: 2048
+kms_proxy:
+  listen_port: 9999
+egress:
+  allow:
+    - kms.*.amazonaws.com
+    - '**.amazonaws.com' 
+    - 169.254.169.254
+    - www.google.com
+ingress:
+  - listen_port: 8001

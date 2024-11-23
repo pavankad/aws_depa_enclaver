@@ -1,0 +1,17 @@
+{
+    "Sid": "Allow public use of the key for no-fly-list demo (git SHORT_SHA)",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "*"
+    },
+    "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringEqualsIgnoreCase": {
+            "kms:RecipientAttestation:PCR0": "58b693ef724c0c743c25c5fb5de301b5e93bb289d3fe2132b5d444d33dc48916c393a6534328475a53a6957f50823024"
+        }
+    }
+}
